@@ -6,14 +6,13 @@
 
 #include <stdint.h>
 #include <stdio.h>
-#include <stdlib.h>
 
 enum {
-  kImgHeaderSz  = 16,
-  kLabHeaderSz  = 8,
-  kImgMagicNo   = 0x803,
-  kLabMagicNo   = 0x801,
-  kImgSz        = 784
+  kImgHeaderSz  = 16,     /* Size of image file header. */
+  kLabHeaderSz  = 8,      /* Size of label file header. */
+  kImgMagicNo   = 0x803,  /* Magic number of image file. */
+  kLabMagicNo   = 0x801,  /* Magic number of label file. */
+  kImgSz        = 784     /* Number of bytes per image. */
 };
 
 static void         Process(const char * const, const char * const,
@@ -30,7 +29,10 @@ static const char * const kTeOut = "test.csv";
 int
 main()
 {
+  /* Process training set. */
   Process(kImgTr, kLabTr, kTrOut);
+
+  /* Process test set. */
   Process(kImgTe, kLabTe, kTeOut);
 
   return 0;
@@ -40,14 +42,14 @@ static void
 Process(const char * const img, const char * const lab,
             const char * const csv)
 {
-  FILE *    f_img;
-  FILE *    f_lab;
-  FILE *    f_csv;
-  uint8_t   b_img[kImgSz];
-  uint8_t   b_lab[kLabHeaderSz];
-  int       n_item;
-  int       i_line;
-  int       i_col;
+  FILE *    f_img;                /* File pointer to image file. */
+  FILE *    f_lab;                /* File pointer to label file. */
+  FILE *    f_csv;                /* File pointer to output CSV. */
+  uint8_t   b_img[kImgSz];        /* Input buffer for image file. */
+  uint8_t   b_lab[kLabHeaderSz];  /* Input buffer for label file. */
+  int       n_item;               /* Number of images. */
+  int       i_line;               /* Output file line index. */
+  int       i_col;                /* Output file column index. */
   
   /* Open files. */
   f_img = fopen(img, "r");
