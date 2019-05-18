@@ -4,8 +4,8 @@
  * @author Arno Bastenhof
  */
 
-#ifndef MNIST_PARSER_H_
-#define MNIST_PARSER_H_
+#ifndef MNIST_PARSER_HPP_
+#define MNIST_PARSER_HPP_
 
 #include <cstdint>
 #include <fstream>
@@ -74,4 +74,4 @@ inline int MnistParser<T>::ReadBigEndianInt32(const uint8_t * bytes)
 
 } // namespace mnist
 
-#endif // MNIST_PARSER_H_
+#endif // MNIST_PARSER_HPP_

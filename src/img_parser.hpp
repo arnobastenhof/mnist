@@ -4,8 +4,8 @@
  * @author Arno Bastenhof
  */
 
-#ifndef IMG_PARSER_H_
-#define IMG_PARSER_H_
+#ifndef IMG_PARSER_HPP_
+#define IMG_PARSER_HPP_
 
 #include <armadillo>
 
@@ -28,4 +28,4 @@ private:
 
 } // namespace mnist
 
-#endif // IMG_PARSER_H_
+#endif // IMG_PARSER_HPP_
